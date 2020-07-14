@@ -1,27 +1,29 @@
-# AngularMaterialStorybook
+# Angular + Material + Storybook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) v10.0.2 + [Angular Material](https://material.angular.io/) v10.0.1 + [Storybook](https://storybook.js.org/) v5.3.19 as an example for how the different pieces fit together.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Storybook server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm run storybook` to start the component explorer. Navigate to `http://localhost:6006/`. Storybook should now be available in the browser with a link provided in the console.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Angular
+
+* [Introduction to the Angular Docs](https://angular.io/docs)
+* [Cheat Sheet
+](https://angular.io/guide/cheatsheet)
+
+### Angular Material
+
+* [Components](https://material.angular.io/components/categories)
+* [Theming your Angular Material app](https://material.angular.io/guide/theming)
+
+### Storybook
+
+* [Writing Stories](https://storybook.js.org/docs/basics/writing-stories/)
+* [Storybook for Angular tutorial](https://www.learnstorybook.com/intro-to-storybook/angular/en/get-started/)
