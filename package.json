@@ -6,7 +6,6 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
     "storybook": "ng run angular-material-storybook:storybook",
     "build-storybook": "ng run angular-material-storybook:build-storybook"
   },
@@ -43,14 +42,12 @@
     "@types/node": "^12.11.1",
     "@types/webpack-env": "^1.14.1",
     "babel-loader": "^8.1.0",
-    "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "karma": "~6.3.19",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "tslint": "~6.1.0",
     "typescript": "~4.6.4",
     "webpack": "^5.76.0"
   }
