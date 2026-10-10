@@ -64,6 +64,24 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "storybook": {
+          "builder": "@storybook/angular-vite:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "angular-material-storybook:build",
+            "styles": ["src/material-theme.scss", "src/styles.css"],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular-vite:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "angular-material-storybook:build",
+            "styles": ["src/material-theme.scss", "src/styles.css"],
+            "outputDir": "storybook-static"
+          }
         }
       }
     }
