@@ -10,11 +10,11 @@ import {
 } from '@storybook/angular-vite';
 import { expect } from 'storybook/test';
 
-type ButtonArgs = {
+interface ButtonArgs {
   appearance: 'text' | 'filled' | 'elevated' | 'outlined' | 'tonal';
   disabled: boolean;
   customLink: string;
-};
+}
 
 const meta: Meta<ButtonArgs> = {
   title: 'Material/Button',

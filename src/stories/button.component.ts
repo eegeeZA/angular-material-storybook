@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'storybook-button',
+  selector: 'app-button',
   standalone: true,
   imports: [CommonModule],
   template: `
     <button
       type="button"
-      (click)="onClick.emit($event)"
+      (click)="clicked.emit($event)"
       [ngClass]="classes"
       [ngStyle]="{ 'background-color': backgroundColor }"
     >
@@ -40,7 +40,7 @@ export class ButtonComponent {
 
   /** Optional click handler */
   @Output()
-  onClick = new EventEmitter<Event>();
+  clicked = new EventEmitter<Event>();
 
   public get classes(): string[] {
     const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
