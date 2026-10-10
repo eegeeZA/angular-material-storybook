@@ -1,5 +1,7 @@
 # Angular + Material + Storybook
 
+[![CI](https://github.com/eegeeZA/angular-material-storybook/actions/workflows/ci.yml/badge.svg)](https://github.com/eegeeZA/angular-material-storybook/actions/workflows/ci.yml)
+
 An example of how [Angular](https://angular.dev/),
 [Angular Material](https://material.angular.dev/) and
 [Storybook](https://storybook.js.org/) fit together.
@@ -34,7 +36,8 @@ Run `npm run storybook` and open `http://localhost:6006/`. The stories live in
 ## Development server
 
 Run `npm start` and open `http://localhost:4200/`. The app reloads when a
-source file changes.
+source file changes. `npm run build` makes a production build, which
+inlines Google Fonts and so needs network access.
 
 ## Tests
 
@@ -42,6 +45,20 @@ source file changes.
 - `npm run test-storybook` renders every story as a test in headless
   Chromium, with its play function and accessibility checks (run
   `npx playwright install chromium` once first).
+
+## Lint and format
+
+- `npm run lint` checks the code with ESLint (angular-eslint and the
+  Storybook plugin); `npm run lint:fix` fixes what it can.
+- `npm run format:check` checks the formatting with Prettier;
+  `npm run format` rewrites the files.
+
+## CI
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull
+request and on pushes to `master`: lint, format check, production build,
+unit tests, story tests and the static Storybook build. It uses only the
+read-only scripts.
 
 ## Further help
 
