@@ -47,3 +47,12 @@ export const Small: Story = {
     label: 'Button',
   },
 };
+
+export const Emoji: Story = {
+  args: {
+    label: '😀 😎 👍 💯',
+  },
+  parameters: {
+    docs: { description: { story: 'My notes on a button with emojis' } },
+  },
+};
