@@ -2,12 +2,12 @@ import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular-vite';
 import { expect, fn } from 'storybook/test';
 
-type ButtonToggleArgs = {
+interface ButtonToggleArgs {
   disabled: boolean;
   vertical: boolean;
   groupChange: (event: MatButtonToggleChange) => void;
   toggleChange: (sourceId: string, value: unknown) => void;
-};
+}
 
 const meta: Meta<ButtonToggleArgs> = {
   title: 'Material/ButtonToggle',
