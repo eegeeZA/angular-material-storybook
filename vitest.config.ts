@@ -4,6 +4,7 @@ import { defineConfig } from 'vitest/config';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import { storybookAngularVitest } from '@storybook/angular-vite/vitest';
+import materialPackage from '@angular/material/package.json';
 const dirname =
   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
@@ -22,6 +23,17 @@ export default defineConfig({
             configDir: path.join(dirname, '.storybook'),
           }),
         ],
+        // Pre-bundle every Material component entry point, so a story's first import
+        // of one does not make Vite re-optimise and reload mid-run. A glob fails:
+        // it also expands to Material's Sass-only exports.
+        optimizeDeps: {
+          include: Object.entries(materialPackage.exports)
+            .filter(
+              ([subpath, target]) =>
+                typeof target === 'object' && 'types' in target && !subpath.includes('/testing'),
+            )
+            .map(([subpath]) => path.posix.join('@angular/material', subpath)),
+        },
         test: {
           name: 'storybook',
           browser: {
