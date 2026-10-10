@@ -82,13 +82,13 @@ export const Icon: Story = {
   render: () => ({
     template: `
       <button matIconButton aria-label="Example icon button with a vertical three dot icon">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon fontIcon="more_vert" />
       </button>
       <button matIconButton aria-label="Example icon button with a home icon">
-        <mat-icon>home</mat-icon>
+        <mat-icon fontIcon="home" />
       </button>
       <button matIconButton disabled aria-label="Example icon button with a open in new tab icon">
-        <mat-icon>open_in_new</mat-icon>
+        <mat-icon fontIcon="open_in_new" />
       </button>
     `,
   }),
@@ -98,14 +98,14 @@ export const FAB: Story = {
   render: () => ({
     template: `
       <button matFab aria-label="Example icon button with a delete icon">
-        <mat-icon>delete</mat-icon>
+        <mat-icon fontIcon="delete" />
       </button>
       <button matFab extended>
-        <mat-icon>favorite</mat-icon>
+        <mat-icon fontIcon="favorite" />
         Extended
       </button>
       <button matFab disabled aria-label="Example icon button with a heart icon">
-        <mat-icon>favorite</mat-icon>
+        <mat-icon fontIcon="favorite" />
       </button>
     `,
   }),
@@ -115,13 +115,13 @@ export const MiniFAB: Story = {
   render: () => ({
     template: `
       <button matMiniFab aria-label="Example icon button with a menu icon">
-        <mat-icon>menu</mat-icon>
+        <mat-icon fontIcon="menu" />
       </button>
       <button matMiniFab aria-label="Example icon button with a plus one icon">
-        <mat-icon>plus_one</mat-icon>
+        <mat-icon fontIcon="plus_one" />
       </button>
       <button matMiniFab disabled aria-label="Example icon button with a home icon">
-        <mat-icon>home</mat-icon>
+        <mat-icon fontIcon="home" />
       </button>
     `,
   }),

@@ -40,7 +40,8 @@ source file changes.
 
 - `npm test` runs the unit tests with [Vitest](https://vitest.dev/).
 - `npm run test-storybook` renders every story as a test in headless
-  Chromium (run `npx playwright install chromium` once first).
+  Chromium, with accessibility checks (run `npx playwright install chromium`
+  once first).
 
 ## Further help
 
