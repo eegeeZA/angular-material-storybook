@@ -8,6 +8,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular-vite';
+import { expect } from 'storybook/test';
 
 type ButtonArgs = {
   appearance: 'text' | 'filled' | 'elevated' | 'outlined' | 'tonal';
@@ -66,6 +67,15 @@ export const Playground: Story = {
       <button [matButton]="appearance" [disabled]="disabled">Appearance: {{ appearance }}</button>
     `,
   }),
+};
+
+export const Disabled: Story = {
+  ...Playground,
+  args: { ...Playground.args, disabled: true },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByRole('link')).toHaveAttribute('aria-disabled', 'true');
+    await expect(canvas.getByRole('button')).toBeDisabled();
+  },
 };
 
 export const Text: Story = { render: () => ({ template: appearanceRow('text') }) };

@@ -1,6 +1,6 @@
 import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular-vite';
-import { fn } from 'storybook/test';
+import { expect, fn } from 'storybook/test';
 
 type ButtonToggleArgs = {
   disabled: boolean;
@@ -39,4 +39,10 @@ export const Basic: StoryObj<ButtonToggleArgs> = {
       </mat-button-toggle-group>
     `,
   }),
+  play: async ({ args, canvas, userEvent }) => {
+    await userEvent.click(canvas.getByRole('radio', { name: 'Bold' }));
+
+    await expect(args.groupChange).toHaveBeenCalledOnce();
+    await expect(args.toggleChange).toHaveBeenCalledWith(expect.any(String), 'bold');
+  },
 };
