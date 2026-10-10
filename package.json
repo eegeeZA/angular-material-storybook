@@ -10,7 +10,10 @@
     "storybook": "ng run angular-material-storybook:storybook",
     "build-storybook": "ng run angular-material-storybook:build-storybook",
     "test-storybook": "vitest --run --project=storybook",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "packageManager": "npm@11.9.0",
