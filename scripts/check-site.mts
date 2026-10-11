@@ -5,9 +5,19 @@ const liveUrl = 'https://eegeeza.github.io/angular-material-storybook/';
 const baseUrl = (process.argv[2] ?? liveUrl).replace(/\/$/, '');
 const primary = 'rgb(0, 92, 187)';
 
+const index = await fetch(`${baseUrl}/index.json`)
+  .then((response) =>
+    response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`)),
+  )
+  .catch((error: Error) => {
+    console.error(`Cannot read ${baseUrl}/index.json: ${error.cause ?? error.message}`);
+    process.exit(1);
+  });
+const entries: { id: string; type: string }[] = Object.values(index.entries);
+
 const browser = await chromium.launch();
 const page = await browser.newPage();
-const problems = [];
+const problems: string[] = [];
 let responses = 0;
 page.on('response', (response) => {
   responses += 1;
@@ -17,14 +27,13 @@ page.on('requestfailed', (request) =>
   problems.push(`failed ${request.url()} ${request.failure()?.errorText}`),
 );
 page.on('pageerror', (error) => problems.push(`pageerror ${error.message}`));
+page.on('console', (message) => {
+  if (message.type() === 'error') problems.push(`console ${message.text()}`);
+});
 
 await page.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
 if ((await page.locator('#storybook-preview-iframe').count()) === 0)
   problems.push('manager: no preview iframe');
-
-const indexResponse = await fetch(`${baseUrl}/index.json`);
-const entries = indexResponse.ok ? Object.values((await indexResponse.json()).entries) : [];
-if (entries.length === 0) problems.push(`index.json: ${indexResponse.status}, no entries`);
 
 let buttons = 0;
 let icons = 0;
