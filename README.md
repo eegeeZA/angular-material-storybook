@@ -65,6 +65,12 @@ read-only scripts.
 On a push to `master`, a second job deploys the static Storybook that the
 first job built to GitHub Pages. Pull requests never deploy.
 
+`node scripts/check-site.mjs` checks the deployed site: it opens every story
+and docs page in headless Chromium and fails on a failed request, an HTTP
+error, a story that does not render, a filled button without the theme colour
+or an icon without the Material Symbols font. Pass a URL to check a
+`storybook-static` served elsewhere.
+
 ## Further help
 
 - [Angular documentation](https://angular.dev/overview)
