@@ -87,7 +87,13 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html", ".storybook/**/*.ts", "*.ts"],
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html",
+              ".storybook/**/*.ts",
+              "scripts/**/*.mts",
+              "*.ts"
+            ],
             "maxWarnings": 0
           }
         }

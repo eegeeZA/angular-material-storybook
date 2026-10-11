@@ -1,4 +1,4 @@
-// Usage: node scripts/check-site.mjs [base URL of a deployed or served storybook-static]
+// Usage: node scripts/check-site.mts [base URL of a deployed or served storybook-static]
 import { chromium } from 'playwright';
 
 const liveUrl = 'https://eegeeza.github.io/angular-material-storybook/';
