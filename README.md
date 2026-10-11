@@ -67,7 +67,7 @@ first job built to GitHub Pages. Pull requests never deploy.
 
 `node scripts/check-site.mts` checks the deployed site: it opens every story
 and docs page in headless Chromium and fails on a failed request, an HTTP
-error, a story that does not render, a filled button without the theme colour
+error, a console error, a story that does not render, a filled button without the theme colour
 or an icon without the Material Symbols font. Pass a URL to check a
 `storybook-static` served elsewhere.
 
