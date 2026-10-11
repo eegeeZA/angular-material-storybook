@@ -71,6 +71,33 @@ error, a console error, a story that does not render, a filled button without th
 or an icon without the Material Symbols font. Pass a URL to check a
 `storybook-static` served elsewhere.
 
+### Rolling back a deploy
+
+The site is whatever the last successful `deploy` job published, so there are
+two ways back to a good version:
+
+- **Re-run an earlier run.** Find the last good run on `master` with
+  `gh run list --workflow ci.yml --branch master` and re-run it with
+  `gh run rerun <run-id>`. It builds that commit again and deploys it. This
+  only works for a run that has a `deploy` job, which is every run on `master`
+  from commit `4c096a9` onwards; re-running an earlier run rebuilds without
+  deploying. GitHub allows re-runs for 30 days. `master` does not change, so
+  the next push to `master` deploys its head again.
+
+  For a day after a run, while its Pages artifact still exists,
+  `gh run rerun --job <deploy-job-id>` republishes the stored build without
+  rebuilding. Get the job's ID with
+  `gh run view <run-id> --json jobs --jq '.jobs[] | {name, databaseId}'`: `--job`
+  takes the `databaseId`, and the job number in the browser URL must not be
+  used.
+
+- **Revert on `master`.** Revert the bad commit on a branch and merge the pull
+  request. The push deploys the reverted code, and later pushes build on it.
+
+Afterwards, run `node scripts/check-site.mts` to check the site. If it fails
+only on a DNS error for a Google Fonts host, run it again before acting on the
+failure.
+
 ## Further help
 
 - [Angular documentation](https://angular.dev/overview)
